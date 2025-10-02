@@ -2,11 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,26 +17,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 
-
-.button-section {
+.user-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 240px;
   height: 240px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px; 
 }
 
 button {
-  font-size: 16px;
+  font-size: 20px;
   border: 4px;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 25px;
   width: 90%;
   color: white;
   background-color: #657383;
@@ -45,4 +47,8 @@ button {
 
 button:hover {
   background-color: #2A3439;
+}
+
+.grid, .user-section {
+  margin: 20px;
 }
