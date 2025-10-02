@@ -56,6 +56,23 @@ function createGrid(squaresPerSide) {
 
 document.addEventListener('DOMContentLoaded', function() {
   createGrid(16);
+
+  // Reset button inside DOMContentLoaded to ensure it exists
+  const reset = document.getElementById("reset");
+  reset.addEventListener('click', () => {
+    createGrid(totalSquares);
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
