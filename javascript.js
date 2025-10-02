@@ -42,8 +42,8 @@ function createGrid(squaresPerSide) {
     const div = document.createElement('div');
     div.style.backgroundColor = '#ffffff';
     div.style.border = '1px solid #ccc';
-    div.style.aspectRatio = '1';
-    div.style.transition = 'background-color, 0.1s ease';
+    div.style.aspectRatio = 'padding-top';
+    div.style.transition = 'background-color 0.1s ease';
 
     // -- Hover event listener --
     div.addEventListener('mouseover', function() {
