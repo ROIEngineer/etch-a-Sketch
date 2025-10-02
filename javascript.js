@@ -53,26 +53,19 @@ function createGrid(squaresPerSide) {
     grid.appendChild(div);
   }
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   createGrid(16);
 
-  // Reset button inside DOMContentLoaded to ensure it exists
-  const reset = document.getElementById("reset");
-  reset.addEventListener('click', () => {
-    createGrid(totalSquares);
-  });
+  // Reset button that only clears colors, keeps grid size
+  const reset = document.querySelector(".reset");
+
+  function clearGrid() {
+    const gridSquares = document.querySelectorAll('.grid div');
+    gridSquares.forEach(square => {
+      square.style.backgroundColor = '#ffffff';
+    });
+  }
+
+  reset.addEventListener('click', clearGrid);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
