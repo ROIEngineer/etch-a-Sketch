@@ -14,10 +14,12 @@ function getGridSize() {
 }
 
 // -- DOM ref --
-const btn = document.querySelector('button');
+const gridSizeBtn = document.querySelector('.inputBtn');
+const resetBtn = document.querySelector('.reset');
 
 // -- Button Event Listener --
-btn.addEventListener('click', getGridSize);
+gridSizeBtn.addEventListener('click', getGridSize);
+resetBtn.addEventListener('click', clearGrid);
 
 function createGrid(squaresPerSide) {
   // -- DOM refs --
@@ -26,13 +28,14 @@ function createGrid(squaresPerSide) {
   // -- Clear content --
   grid.textContent = '';
 
-  // Grid styles
+  // -- Grid Styling --
   grid.style.display = 'grid';
   grid.style.gridTemplateColumns = `repeat(${squaresPerSide}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${squaresPerSide}, 1fr)`;
   grid.style.gap = '1px';
-  grid.style.width = '960px';
-  grid.style.height = '960px';
+  grid.style.width = `960px`;
+  grid.style.height = `960px`;
+
 
   // Squared Math - calculate total number of squares
   const totalSquares = squaresPerSide * squaresPerSide;
@@ -42,8 +45,7 @@ function createGrid(squaresPerSide) {
     const div = document.createElement('div');
     div.style.backgroundColor = '#ffffff';
     div.style.border = '1px solid #ccc';
-    div.style.aspectRatio = '1';
-    div.style.transition = 'background-color, 0.1s ease';
+    div.style.transition = 'background-color 0.1s ease';
 
     // -- Hover event listener --
     div.addEventListener('mouseover', function() {
@@ -53,19 +55,15 @@ function createGrid(squaresPerSide) {
     grid.appendChild(div);
   }
 }
+
+function clearGrid() {
+  const gridSquares = document.querySelectorAll('.grid > div');
+  gridSquares.forEach(square => {
+    square.style.backgroundColor = '#ffffff';
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   createGrid(16);
-
-  // Reset button that only clears colors, keeps grid size
-  const reset = document.querySelector(".reset");
-
-  function clearGrid() {
-    const gridSquares = document.querySelectorAll('.grid div');
-    gridSquares.forEach(square => {
-      square.style.backgroundColor = '#ffffff';
-    });
-  }
-
-  reset.addEventListener('click', clearGrid);
 });
 

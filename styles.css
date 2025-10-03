@@ -58,6 +58,6 @@ button:hover {
   background-color: (--dark-color);
 }
 
-.grid, .user-section {
+.user-section {
   margin: 20px;
 }
