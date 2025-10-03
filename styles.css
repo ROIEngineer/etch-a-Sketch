@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--background-color);
+  background-color: #f0f0f0;
 }
 
 .container {
@@ -49,13 +49,13 @@ button {
   padding: 10px;
   margin-bottom: 25px;
   width: 90%;
-  color: var(--white);
+  color: white;
   background-color: var(--primary-color);
-  transition: background-color 0.2s ease;
+  transistion: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: var(--dark-color);
+  background-color: (--dark-color);
 }
 
 .grid, .user-section {
