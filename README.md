@@ -3,7 +3,7 @@
 <img width="1910" height="740" alt="_home_hdurant_repos_etch-a-Sketch_index html" src="https://github.com/user-attachments/assets/2abf5955-4ba7-45d6-ac70-ba1fc8a2643a" />
 
 ## 🎨 Live Demo
-https://vercel.com/harold-durants-projects/etch-a-sketch/5RCBdFYMRD9LSMGfPTh1i96ghF1F
+[Click here to view live demo](https://vercel.com/harold-durants-projects/etch-a-sketch/5RCBdFYMRD9LSMGfPTh1i96ghF1F)
 
 ## 📋 Table of Contents
 - [Overview](#overview)
