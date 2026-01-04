@@ -1,120 +1,161 @@
-# Etch-a-Sketch
+# Etch-a-Sketch Drawing App
 
-A simple browser-based Etch-a-Sketch drawing grid built with HTML, CSS and JavaScript. Click **Squares Per Side** to choose a grid size (1–100), hover over the squares to "draw", and use **Clear Drawing** to reset the colors while keeping the grid size.
+<img width="1910" height="740" alt="_home_hdurant_repos_etch-a-Sketch_index html" src="https://github.com/user-attachments/assets/2abf5955-4ba7-45d6-ac70-ba1fc8a2643a" />
 
----
+## 🎨 Live Demo
+https://vercel.com/harold-durants-projects/etch-a-sketch/5RCBdFYMRD9LSMGfPTh1i96ghF1F
 
-## Demo / Quick start
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Code Highlights](#code-highlights)
+- [Future Improvements](#future-improvements)
 
-1. Clone or download the project files.
-2. Open `index.html` in your browser.
+## 🚀 Overview
+Etch-a-Sketch is an interactive drawing application built with vanilla JavaScript, HTML, and CSS. This project demonstrates modern frontend development skills with a responsive design and smooth user interactions. Create pixel art by hovering over the grid, customize the grid size, and clear your canvas with ease.
 
-Open `index.html` to run the app in any modern browser. 
+## ✨ Features
+- **Interactive Drawing**: Hover to draw on the grid with smooth transitions
+- **Customizable Grid**: Dynamic grid sizing from 1x1 to 100x100
+- **Responsive Design**: Beautiful sidebar layout that adapts to all screen sizes
+- **Clean UI**: Modern gradient design with polished buttons and animations
+- **Real-time Feedback**: Visual feedback with hover effects and transitions
+- **Mobile Optimized**: Fully responsive with mobile-first breakpoints
 
----
+## 🛠️ Technologies
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Flexbox, Grid, CSS Animations, Media Queries
+- **JavaScript (ES6)**: DOM manipulation, event handling, dynamic grid generation
+- **Responsive Design**: vmin units for proportional scaling, mobile-first approach
 
-## Features
-
-* Default 16×16 drawing grid on load. 
-* Prompt user for custom grid size (1–100). 
-* Hover-to-draw interaction for each grid cell. 
-* Clear (reset) button that clears cell colors but preserves grid layout. 
-* CSS variables for easy theme customization. 
-
----
-
-## Project structure
-
+## 📦 Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/etch-a-sketch.git
 ```
-/ (project root)
-├─ index.html         # App shell and buttons. :contentReference[oaicite:6]{index=6}
-├─ javascript.js      # Grid creation, event listeners, reset logic. :contentReference[oaicite:7]{index=7}
-└─ styles.css         # Visual styles and CSS variables. :contentReference[oaicite:8]{index=8}
+
+2. Navigate to the project directory:
+```bash
+cd etch-a-sketch
 ```
 
----
+3. Open `index.html` in your browser:
+```bash
+open index.html
+# or
+start index.html
+# or simply double-click the file
+```
 
-## How it works (brief)
+No build process or dependencies required!
 
-* `index.html` contains the app markup and two buttons (Squares Per Side and Clear Drawing). 
-* `javascript.js`:
+## 🎮 Usage
+### Basic Drawing
+1. **Hover** over any square in the grid to draw
+2. Watch as squares change color with smooth transitions
+3. Create pixel art by moving your cursor across the grid
 
-  * On load, `createGrid(16)` builds a square grid of divs and attaches a `mouseover` listener to each cell to change its background color when hovered. 
-  * The **Squares Per Side** button triggers `getGridSize()` which prompts the user and calls `createGrid(n)` with validation. 
-  * The **Clear Drawing** button clears the color of all grid cells without changing layout. 
-* `styles.css` provides variables and base layout for the UI and grid container. 
+### Grid Customization
+1. Click **"Squares Per Side"** button
+2. Enter a number between 1 and 100
+3. The grid will dynamically resize to your specified dimensions
 
----
+### Clearing the Canvas
+- Click **"Clear Drawing"** to reset all squares to white
+- Start fresh with a clean canvas
 
-## Usage
+## 📁 Project Structure
+```
+etch-a-sketch/
+│
+├── index.html          # Main HTML file
+├── styles.css          # All styling and responsive design
+├── javascript.js       # Grid logic and interactivity
+└── README.md           # This documentation
+```
 
-* Click **Squares Per Side** → enter a number between **1** and **100** → the grid updates.
-* Move your mouse over the grid to draw (cells turn dark).
-* Click **Clear Drawing** to reset colors.
+## 💡 Code Highlights
 
----
-
-## Customization
-
-### Change colors or theme
-
-Edit the CSS variables in `styles.css`:
-
+### Responsive Grid System
 ```css
-:root {
-  --primary-color: #657383;
-  --dark-color: #2A3439;
-  --background-color: #f0f0f0;
-  --white: #ffffff;
+.grid {
+    width: 65vmin;          /* Proportional to viewport */
+    height: 65vmin;         /* Always square aspect ratio */
+    max-width: 550px;       /* Limits on large screens */
+    max-height: 550px;
 }
 ```
 
-Modify `--primary-color` and `--dark-color` to change button and hover colors. 
-
-### Change default grid size
-
-In `javascript.js` change the `createGrid(16);` call inside the `DOMContentLoaded` handler to your preferred default. 
-
----
-
-## Future improvements
-
-Planned enhancements and ideas to improve the app:
-
-- Make grid container responsive (replace fixed width with a `max-width`/flexible layout so the grid scales cleanly on smaller screens).
-- Improve accessibility:
-  - Add keyboard controls for drawing (arrow keys + paint toggle).
-  - Replace `prompt()` with an accessible modal and add ARIA attributes.
-  - Increase focus outlines and provide high-contrast theme options.
-- Touch support and better mobile hit-target sizes for cells.
-- Persist grid state (localStorage) so drawings survive page reloads.
-- Add an optional color picker and brush modes (gradual shading, random color).
-- Add unit / integration tests for grid-generation logic and input validation.
-
-## Contributing
-
-1. Fork the repo.
-2. Create a branch (`feature/my-feature`).
-3. Commit your changes and open a PR with a clear description of what you changed.
-
----
-
-## License
-
-MIT License — feel free to reuse and modify. Replace `<YOUR NAME>` and the year as needed.
-
-```
-MIT License
-
-Copyright (c) <YEAR> <YOUR NAME>
-
-Permission is hereby granted, free of charge...
+### Dynamic Grid Generation
+```javascript
+function createGrid(squaresPerSide) {
+    // Dynamically calculates grid size
+    const totalSquares = squaresPerSide * squaresPerSide;
+    
+    // Creates responsive grid template
+    grid.style.gridTemplateColumns = `repeat(${squaresPerSide}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${squaresPerSide}, 1fr)`;
+}
 ```
 
+### Modern UI Components
+- Gradient buttons with hover effects
+- Ripple animations on click
+- Smooth transitions and loading animations
+- Custom scrollbar styling
+
+## 🔮 Future Improvements
+Planned enhancements for this project:
+
+1. **Color Picker**: Allow users to choose drawing colors
+2. **Drawing Modes**: Toggle between draw, erase, and rainbow modes
+3. **Touch Support**: Enable drawing on touchscreen devices
+4. **Save & Export**: Download creations as PNG images
+5. **Grid Toggle**: Show/hide grid lines for better precision
+6. **Undo/Redo**: History of drawing actions
+7. **Pattern Library**: Pre-made patterns and templates
+
+## 🏆 Learning Outcomes
+This project demonstrates proficiency in:
+- **DOM Manipulation**: Dynamic element creation and styling
+- **Event Handling**: User interactions and responsive feedback
+- **CSS Grid & Flexbox**: Modern layout techniques
+- **Responsive Design**: Mobile-first approach with vmin units
+- **Clean Code Practices**: Readable, maintainable JavaScript
+- **UI/UX Principles**: Intuitive design with visual feedback
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👨‍💻 Author
+**Your Name**  
+- Portfolio: [My Website](https://vercel.com/harold-durants-projects/portfolio-web/J92kBWSULG2H7Jfrj4V1nihRBJX7)
+- GitHub: [@ROIEngineer](https://github.com/ROIEngineer)
+
 ---
 
-## Credits
-
-Built with plain HTML/CSS/JavaScript. See the source files for implementation details: `index.html`, `javascript.js`, and `styles.css`.   
+*Made with ❤️ and vanilla JavaScript*
 
 ---
+
+## 🎯 Portfolio Notes
+**Why this project stands out:**
+- Demonstrates core JavaScript skills without frameworks
+- Shows attention to UI/UX design principles
+- Responsive design works flawlessly on all devices
+- Clean, readable code with proper comments
+- Professional styling that looks portfolio-ready
+- Simple concept executed exceptionally well
+
+**Keywords for recruiters:** Frontend Development, JavaScript, DOM Manipulation, Responsive Design, CSS Grid, UI/UX, Portfolio Project, Interactive Web Application
+
+---
+
+*Last Updated: October 2024*
